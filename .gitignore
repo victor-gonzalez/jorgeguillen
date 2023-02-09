@@ -1,0 +1,25 @@
+# exclude kile / latex intermediate files
+*.aux
+*.log
+*.nav
+*.out
+*.pdf
+*.snm
+*.synctex.gz
+*.toc
+*.bbl
+*.blg
+*.vrb
+*.bm
+*.dvi
+*.pbsdat
+*.ps
+
+# exclude kile project files and directory
+*.kilepr
+.kile
+
+# excluding the IMAGE directory for the time being
+IMAGES
+
+
