@@ -21,5 +21,6 @@
 
 # excluding the IMAGE directory for the time being
 IMAGES
+VIDEOS
 
 

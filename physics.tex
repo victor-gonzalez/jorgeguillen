@@ -1,11 +1,82 @@
-\documentclass[style=simple,paper=169]{powerdot}
+\documentclass[14pt,aspectratio=169,t]{beamer}
+
+\mode<presentation> {
+%\usetheme{Hannover}
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+% To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline} 
+
+% To replace the footer line in all
+% slides with a simple slide count uncomment this line
+\setbeamertemplate{footline}[page number] 
+\setbeamertemplate{section in toc}[ball numbered] 
+
+% To remove the navigation symbols
+%from the bottom of all slides uncomment this line
+\setbeamertemplate{navigation symbols}{} 
+\usefonttheme{professionalfonts}
+
+
+\setbeamertemplate{itemize items}[square] % if you want a square
+\setbeamertemplate{itemize subitem}[circle] % if you wnat a circle
+\setbeamertemplate{itemize subsubitem}[triangle] % if you want a triangle
+}
+
 
 \usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{slashed}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows \toprule, \midrule and \bottomrule in tables
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+\pgfplotsset{compat=1.15}
+\usepackage{xspace}
+
+\usepackage{tikz}
+%\usepackage{soul}
+\usepackage[normalem]{ulem}
+
 \usepackage[bigfiles]{pdfbase}
 \usepackage[bigfiles]{media9}
 
-\pdsetup{
-}
+\usepackage[overlay,absolute]{textpos}
+\setlength{\TPHorizModule}{1cm}
+\setlength{\TPVertModule}{1cm}
+\textblockorigin{0mm}{0mm}
+
+
+\makeatletter
+\def\beamer@andinst{\quad}
+\def\beamer@and{\\[1em]}
+\makeatother
+
+
+\definecolor{carmine}{rgb}{0.59, 0.0, 0.09}
+
+
 
 \ExplSyntaxOn
 %%begin novalidate
@@ -73,39 +144,94 @@
 
 \usepackage{graphicx}
 
+\graphicspath{
+  {./IMAGES/}
+}
 
-\title{La física\\Una aventura del conocimiento}
-\author{Víctor González}
+\title{\LARGE \textbf{La física\\Una aventura del conocimiento}}
+\author{Víctor}
 \date{}
+
+% to insert the section title slide
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+
+%remove the icon
+\setbeamertemplate{bibliography item}{}
 
 \begin{document}
 
-\maketitle
+\begin{frame}{}
+  \begin{textblock}{8}(7.0,4.4)
+%      \titlepage
+  {\usebeamerfont{title}\usebeamercolor[fg]{title}{ 
+  \textbf{La ciencia\\Una aventura ...\\... del conocimiento}}}\\
+  \vspace{0.1in}
+  {\large \textbf{Víctor}}
+  \end{textblock}
+  
+  % the logos
+  \begin{textblock}{12}(1.0,0.3)
+      \includegraphics[width=6cm]{LOGO-WSU-wsu_primary_horz_color}
+  \end{textblock}
+  \begin{textblock}{10}(12.0,0.2)
+      \includegraphics[width=2.0cm]{CERN_logo-689x700}
+  \end{textblock}
+  \begin{textblock}{10}(14.3,0.2)
+      \includegraphics[width=1.5cm]{LOGO-ALICE-2012-Jul-04-4_Color_Logo_CB}
+  \end{textblock}
+  \begin{textblock}{10}(0.2,2.9)
+      \includegraphics[width=6.0cm]{jorgeguillenlogo}
+  \end{textblock}
+\end{frame}
+
 \section{The beginnings}
 
-\begin{slide}{a slide}
+\begin{frame}{a slide}
   Slide contents
-\end{slide}
+\end{frame}
 
-\begin{slide}{The video}
-  \vspace{-0.2in}
+
+\end{document}
+
+\begin{frame}{The CERN video}
+  \begin{textblock}{16.05}(-0.02,-0.02)
   \includemedia[
-    width=1.0\linewidth,
+    width=1\linewidth,
     height=0.565\linewidth,
     keepaspectratio,
     activate=pageopen,
     playbutton=fancy,
-    addresource=/home/victor/Downloads/OPEN-VIDEO-2021-344-001.mp4,
-    flashvars={source=/home/victor/Downloads/OPEN-VIDEO-2021-344-001.mp4&autoPlay=true}
+    addresource=VIDEOS/CERN-VIDEO-2019-019-001-1080p.mp4,
+    flashvars={source=VIDEOS/CERN-VIDEO-2019-019-001-1080p.mp4&autoPlay=true}
     ]{}{VPlayer.swf}
+  \end{textblock}
 
-%  \embedvideo{\includegraphics[width=0.5\textwidth]{IMAGES/LOGO-ALICE-2012-Jul-04-4_Color_Logo_CB.png}}{/home/victor/Downloads/OPEN-VIDEO-2021-344-001.mp4}
-\end{slide}
+\end{frame}
 
 
-\begin{slide}{The final slide}
-  The final contents
-\end{slide}
+\begin{frame}{The ALICE video}
+  \begin{textblock}{16.1}(0.0,0.0)
+  \includemedia[
+    width=1\linewidth,
+    height=0.56\linewidth,
+    keepaspectratio,
+    activate=pageopen,
+    playbutton=fancy,
+    addresource=VIDEOS/OPEN-VIDEO-2021-344-001.mp4,
+    flashvars={source=VIDEOS/OPEN-VIDEO-2021-344-001.mp4&autoPlay=true}
+    ]{}{VPlayer.swf}
+  \end{textblock}
+
+\end{frame}
 
 
 \end{document}
