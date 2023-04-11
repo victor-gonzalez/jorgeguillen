@@ -78,70 +78,6 @@
 
 
 
-\ExplSyntaxOn
-%%begin novalidate
-\cs_new:Npn\embedvideo#1#2{
-%%end novalidate
-  \leavevmode
-  \pbs_pdfobj:nnn{}{fstream}{{}{#2}}
-  \pbs_pdfobj:nnn{}{dict}{
-    /Type/Filespec/F~(#2)/UF~(#2)
-    /EF~<</F~\pbs_pdflastobj:>>
-  }
-  \tl_set:Nx\video{\pbs_pdflastobj:}%
-  %
-  \pbs_pdfobj:nnn{}{dict}{
-    /Type/RichMediaInstance/Subtype/Video
-    /Asset~\video
-    /Params~<</Binding/Foreground>>
-  }
-  %
-  \pbs_pdfobj:nnn{}{dict}{
-    /Type/RichMediaConfiguration/Subtype/Video
-    /Instances~[\pbs_pdflastobj:]
-  }
-  %
-  \pbs_pdfobj:nnn{}{dict}{
-    /Type/RichMediaContent
-    /Assets~<<
-      /Names~[(#2)~\video]
-    >>
-    /Configurations~[\pbs_pdflastobj:]
-  }
-  \tl_set:Nx\rmcontent{\pbs_pdflastobj:}%
-  %
-  \pbs_pdfobj:nnn{}{dict}{
-    /Activation~<<
-      /Condition/XA
-      /Presentation~<<
-        /Transparent~true
-        /Style/Embedded
-        /PassContextClick~true
-      >>
-    >>
-    /Deactivation~<</Condition/PC>>
-  }
-  %
-  \hbox_set:Nn\l_tmpa_box{#1}
-  \tl_set:Nx\l_box_wd_tl{\dim_use:N\box_wd:N\l_tmpa_box}
-  \tl_set:Nx\l_box_ht_tl{\dim_use:N\box_ht:N\l_tmpa_box}
-  \tl_set:Nx\l_box_dp_tl{\dim_use:N\box_dp:N\l_tmpa_box}
-  \pbs_pdfxform:nnnnn{1}{1}{}{}{\l_tmpa_box}
-  %
-  \pbs_pdfannot:nnnn{\l_box_wd_tl}{\l_box_ht_tl}{\l_box_dp_tl}{
-    /Subtype/RichMedia
-    /BS~<</W~0/S/S>>
-    /Contents~(embedded~video~file:#2)
-    /NM~(rma:#2)
-    /AP~<</N~\pbs_pdflastxform:>>
-    /RichMediaSettings~\pbs_pdflastobj:
-    /RichMediaContent~\rmcontent
-  }
-  \phantom{#1}
-}%
-\ExplSyntaxOff
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \usepackage{graphicx}
 
 \graphicspath{
@@ -175,7 +111,9 @@
   {\usebeamerfont{title}\usebeamercolor[fg]{title}{ 
   \textbf{La ciencia\\Una aventura ...\\... del conocimiento}}}\\
   \vspace{0.1in}
-  {\large \textbf{Víctor}}
+  {\large \textbf{Víctor}}\\
+  \vspace{0.2in}
+  {\small\textbf{20 de abril de 2023}}
   \end{textblock}
   
   % the logos
@@ -193,12 +131,55 @@
   \end{textblock}
 \end{frame}
 
-\section{The beginnings}
+\section{La aventura del conocimiento}
 
 \begin{frame}{a slide}
   Slide contents
 \end{frame}
 
+\section{\LARGE \textbf{La Física}}
+
+\begin{frame}
+  \frametitle{\LARGE \textbf{Contribución de la Física}}
+  \begin{textblock}{15}(0.5,1.5)
+    \includegraphics[width=0.49\textwidth,keepaspectratio=true,
+                     clip=true,trim=20pt 0pt 0pt 0pt]
+                     {pedaa5b25f02_hr}
+    \includegraphics[width=0.49\textwidth,keepaspectratio=true,
+                     clip=true,trim=0pt 100pt 0pt 0pt]
+                     {s-l500}
+  \end{textblock}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{\LARGE \textbf{Relatividad general}}
+  \begin{textblock}{7.35}(8.0,1.5)
+    \includegraphics[width=1\textwidth,keepaspectratio=true,
+                     clip=true,trim=0pt 100pt 0pt 0pt]
+                     {s-l500}
+  \end{textblock}
+
+  \begin{textblock}{6}(2.5,5.7)
+    \includegraphics[width=1\textwidth,keepaspectratio=true,
+                     clip=true,trim=0pt 0pt 100pt 30pt]
+                     {dark-energy-now}
+  \end{textblock}
+  \begin{textblock}{7.35}(0.5,1.7)
+    \begin{itemize}
+      \item {\color{blue}\textbf{Espaciotiempo}}
+      \vspace{0.05in}
+      \item {\color{blue}\textbf{Dilatación del tiempo}}
+      \vspace{0.05in}
+      \item {\color{blue}\textbf{Agujeros negros}}
+      \vspace{0.05in}
+      \item {\color{blue}\textbf{Materia oscura}}
+      \vspace{0.05in}
+      \item {\color{blue}\textbf{Energía oscura}}
+    \end{itemize}
+  \end{textblock}
+\end{frame}
 
 \end{document}
 
